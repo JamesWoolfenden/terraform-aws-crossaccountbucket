@@ -2,121 +2,79 @@
 
 [![Slalom][logo]](https://slalom.com)
 
-Build Harness [![Build Status](https://travis-ci.com/JamesWoolfenden/build-harness.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/build-harness) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/build-harness.svg)](https://github.com/JamesWoolfenden/build-harness/releases/latest)
+terraform-aws-crossaccountbucket [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-aws-crossaccountbucket.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-crossaccountbucket) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-crossaccountbucket.svg)](https://github.com/JamesWoolfenden/terraform-aws-crossaccountbucket/releases/latest)
 
-
-This `build-harness` is a collection of Makefiles to facilitate building Golang projects, Dockerfiles, Helm charts, and more.
-It's designed to work with CI/CD systems such as Travis CI, CircleCI and Jenkins.
+This module sets up an s3 buckets that is shared across aws accounts.
 
 ---
 
 This project uses the "build-harness" a modified version of the project ["SweetOps"](https://cpco.io/sweetops) from Cloudposse. Sweet indeed.
 
-
 It's 100% Open Source and licensed under the [APACHE2](LICENSE).
-
-
-
-
-
-
-
-
-## Screenshots
-
-
-![demo](https://cdn.rawgit.com/cloudposse/build-harness/master/docs/demo.svg)
-*Example of using the `build-harness` to build a docker image*
-
-
-
-## Introduction
-
-Some text here
-
 
 ## Usage
 
-At the top of your `Makefile` add, the following...
+It's a very simple module to use .
+The module file:
+
 ```make
--include $(shell curl -sSL -o .build-harness "https://raw.githubusercontent.com/JamesWoolfenden/build-harness/master/templates/Makefile.build-harness"; echo .build-harness)
+module "shared" {
+source = "../../"
+name   = "${var.name}"
+}
 ```
-This will download a `Makefile` called `.build-harness` and include it at run-time. We recommend adding the `.build-harness` file to your `.gitignore`.
-This automatically exposes many new targets that you can leverage throughout your build & CI/CD process.
-Run `make help` for a list of available targets.
-**NOTE:** the `/` is interchangable with the `:` in target names
 
-## Quick Start
+You need to provide 2 aws providers:
 
-Here's how to get started...
-1. `git clone https://github.com/jameswoolfenden/build-harness.git` to pull down the repository
-2. `make init` to initialize the [`build-harness`](https://github.com/jameswoolfenden/build-harness/)
+```hcl
+provider "aws" {
+  region  = "eu-west-1"
+  version = "2.0"
+}
 
-
-
-## Examples
-
-Here are some real world examples:
-- [`github-authorized-keys`](https://github.com/cloudposse/github-authorized-keys/) - A Golang project that leverages `docker/%`, `go/%`, `travis/%` targets
-- [`charts`](https://github.com/cloudposse/charts/) - A collection of Helm Charts that leverages `docker/%` and `helm/%` targets
-- [`bastion`](https://github.com/cloudposse/bastion/) - A docker image that leverages `docker/%` and `bash/lint` targets
-- [`terraform-null-label`](https://github.com/cloudposse/terraform-null-label/) - A terraform module that leverages `terraform/%` targets
-
-
-
-## Makefile Targets
-```
-Available targets:
-
-  help                                Help screen
-  help/all                            Display help for all targets
-  help/short                          This help short screen
-  lint:                              Lint terraform code
+provider "aws" {
+  region  = "eu-west-1"
+  version = "2.0"
+  alias   = "prod"
+}
 
 ```
 
+## Inputs
 
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| bucketname | Optional name for the bucket to share | string | `` | no |
+| name | Prefix to the bucketname | string | - | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| canonical-dev | - |
+| canonical-prod | - |
 
 ## Related Projects
 
 Check out these related projects.
 
-- [Packages](https://github.com/cloudposse/packages) - Cloud Posse installer and distribution of native apps
-- [Dev Harness](https://github.com/cloudposse/dev) - Cloud Posse Local Development Harness
-
-
-
-
-## References
-
-For additional context, refer to some of these links.
-
-- [Wikipedia - Test Harness](https://en.wikipedia.org/wiki/Test_harness) - The `build-harness` is similar in concept to a "Test Harness"
-
-
+- [terraform-aws-codebuild](https://github.com/jameswoolfenden/terraform-aws-codebuild) - Making a Build pipeline
 
 ## Help
 
 **Got a question?**
 
-File a GitHub [issue](https://github.com/JamesWoolfenden/build-harness/issues).
+File a GitHub [issue](https://github.com/jameswoolfenden/terraform-aws-crossaccountbucket/issues).
 
 ## Contributing
 
 ### Bug Reports & Feature Requests
 
-Please use the [issue tracker](https://github.com/JamesWoolfenden/build-harness/issues) to report any bugs or file feature requests.
-
-
+Please use the [issue tracker](https://github.com/jameswoolfenden/terraform-aws-crossaccountbucket/issues) to report any bugs or file feature requests.
 
 ## Copyrights
 
 Copyright © 2019-2019 [Slalom, LLC](https://slalom.com)
-
-
-
-
-
 
 ## License
 
@@ -141,17 +99,6 @@ See [LICENSE](LICENSE) for full details.
     specific language governing permissions and limitations
     under the License.
 
-
-
-
-
-
-
-
-
-
-
-
 ### Contributors
 
 |  [![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage]<br/>[James Woolfenden][jameswoolfenden_homepage] |
@@ -160,17 +107,15 @@ See [LICENSE](LICENSE) for full details.
   [jameswoolfenden_homepage]: https://github.com/jameswoolfenden
   [jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
 
-
-
 [logo]: https://gist.githubusercontent.com/JamesWoolfenden/5c457434351e9fe732ca22b78fdd7d5e/raw/15933294ae2b00f5dba6557d2be88f4b4da21201/slalom-logo.png
 [website]: https://slalom.com
 [github]: https://github.com/jameswoolfenden
 [linkedin]: https://www.linkedin.com/company/slalom-consulting/
 [twitter]: https://twitter.com/Slalom
 
-[share_twitter]: https://twitter.com/intent/tweet/?text=Build+Harness&url=https://github.com/JamesWoolfenden/build-harness
-[share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=Build+Harness&url=https://github.com/JamesWoolfenden/build-harness
-[share_reddit]: https://reddit.com/submit/?url=https://github.com/JamesWoolfenden/build-harness
-[share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/JamesWoolfenden/build-harness
-[share_googleplus]: https://plus.google.com/share?url=https://github.com/JamesWoolfenden/build-harness
-[share_email]: mailto:?subject=Build+Harness&body=https://github.com/JamesWoolfenden/build-harness
+[share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-crossaccountbucket&url=https://github.com/jameswoolfenden/terraform-aws-crossaccountbucket
+[share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-crossaccountbucket&url=https://github.com/jameswoolfenden/terraform-aws-crossaccountbucket
+[share_reddit]: https://reddit.com/submit/?url=https://github.com/jameswoolfenden/terraform-aws-crossaccountbucket
+[share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/jameswoolfenden/terraform-aws-crossaccountbucket
+[share_googleplus]: https://plus.google.com/share?url=https://github.com/jameswoolfenden/terraform-aws-crossaccountbucket
+[share_email]: mailto:?subject=terraform-aws-crossaccountbucket&body=https://github.com/jameswoolfenden/terraform-aws-crossaccountbucket

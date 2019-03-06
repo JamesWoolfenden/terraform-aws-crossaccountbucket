@@ -3,8 +3,21 @@
 # This is the canonical configuration for the `README.md`
 # Run `make readme` to rebuild the `README.md`
 #
+
 # Name of this project
-name: Build Harness
+name: terraform-aws-crossaccountbucket
+
+# Tags of this project
+tags:
+  - aws
+  - terraform
+  - terraform-modules
+  - codepipeline
+
+# Categories of this project
+categories:
+  - terraform-modules/CICD
+
 # Logo for this project
 #logo: docs/slalom-logo.png
 # License of this project
@@ -15,63 +28,51 @@ copyrights:
     url: "https://slalom.com"
     year: "2019"
 # Canonical GitHub repo
-github_repo: JamesWoolfenden/build-harness
+github_repo: jameswoolfenden/terraform-aws-crossaccountbucket
+
 # Badges to display
 badges:
   - name: "Build Status"
-    image: "https://travis-ci.com/JamesWoolfenden/build-harness.svg?branch=master"
-    url: "https://travis-ci.com/JamesWoolfenden/build-harness"
+    image: "https://travis-ci.com/JamesWoolfenden/terraform-aws-crossaccountbucket.svg?branch=master"
+    url: "https://travis-ci.com/JamesWoolfenden/terraform-aws-crossaccountbucket"
   - name: "Latest Release"
-    image: "https://img.shields.io/github/release/JamesWoolfenden/build-harness.svg"
-    url: "https://github.com/JamesWoolfenden/build-harness/releases/latest"
+    image: "https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-crossaccountbucket.svg"
+    url: "https://github.com/JamesWoolfenden/terraform-aws-crossaccountbucket/releases/latest"
 related:
-  - name: "Packages"
-    description: "Cloud Posse installer and distribution of native apps"
-    url: "https://github.com/cloudposse/packages"
-  - name: "Dev Harness"
-    description: "Cloud Posse Local Development Harness"
-    url: "https://github.com/cloudposse/dev"
-# References
-references:
-  - name: "Wikipedia - Test Harness"
-    description: 'The `build-harness` is similar in concept to a "Test Harness"'
-    url: "https://en.wikipedia.org/wiki/Test_harness"
-# Screenshots
-screenshots:
-  - name: "demo"
-    description: "Example of using the `build-harness` to build a docker image"
-    url: "https://cdn.rawgit.com/cloudposse/build-harness/master/docs/demo.svg"
+  - name: "terraform-aws-codebuild"
+    description: "Making a Build pipeline"
+    url: "https://github.com/jameswoolfenden/terraform-aws-codebuild"
+
 # Short description of this project
 description: |-
-  This `build-harness` is a collection of Makefiles to facilitate building Golang projects, Dockerfiles, Helm charts, and more.
-  It's designed to work with CI/CD systems such as Travis CI, CircleCI and Jenkins.
-# Introduction to the project
-introduction: |-
-  Some text here
+  This module sets up an s3 buckets that is shared across aws accounts.
 usage: |-
-  At the top of your `Makefile` add, the following...
+  It's a very simple module to use .
+  The module file:
+
   ```make
-  -include $(shell curl -sSL -o .build-harness "https://raw.githubusercontent.com/JamesWoolfenden/build-harness/master/templates/Makefile.build-harness"; echo .build-harness)
+  module "shared" {
+  source = "../../"
+  name   = "${var.name}"
+  }  ```
+
+  You need to provide 2 aws providers:
+  ```hcl
+  provider "aws" {
+    region  = "eu-west-1"
+    version = "2.0"
+  }
+
+  provider "aws" {
+    region  = "eu-west-1"
+    version = "2.0"
+    alias   = "prod"
+  }
   ```
-  This will download a `Makefile` called `.build-harness` and include it at run-time. We recommend adding the `.build-harness` file to your `.gitignore`.
-  This automatically exposes many new targets that you can leverage throughout your build & CI/CD process.
-  Run `make help` for a list of available targets.
-  **NOTE:** the `/` is interchangable with the `:` in target names
-# Example usage
-examples: |-
-  Here are some real world examples:
-  - [`github-authorized-keys`](https://github.com/cloudposse/github-authorized-keys/) - A Golang project that leverages `docker/%`, `go/%`, `travis/%` targets
-  - [`charts`](https://github.com/cloudposse/charts/) - A collection of Helm Charts that leverages `docker/%` and `helm/%` targets
-  - [`bastion`](https://github.com/cloudposse/bastion/) - A docker image that leverages `docker/%` and `bash/lint` targets
-  - [`terraform-null-label`](https://github.com/cloudposse/terraform-null-label/) - A terraform module that leverages `terraform/%` targets
-# How to get started quickly
-quickstart: |-
-  Here's how to get started...
-  1. `git clone https://github.com/jameswoolfenden/build-harness.git` to pull down the repository
-  2. `make init` to initialize the [`build-harness`](https://github.com/jameswoolfenden/build-harness/)
-# Other files to include in this README from the project folder
+
 include:
   - "docs/targets.md"
+
 # Contributors to this project
 contributors:
   - name: "James Woolfenden"
