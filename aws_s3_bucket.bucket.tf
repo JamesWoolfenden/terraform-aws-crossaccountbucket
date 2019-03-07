@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "canon" {
 
     principals {
       type        = "AWS"
-      identifiers = ["arn:aws:iam::${data.aws_caller_identity.prod.account_id}:root"]
+      identifiers = ["arn:aws:iam::${var.Secondary_account_id}:root"]
     }
   }
 }

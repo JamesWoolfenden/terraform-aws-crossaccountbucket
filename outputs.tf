@@ -1,7 +1,7 @@
-output "canonical-dev" {
+output "primary-canonical" {
   value = "${data.aws_canonical_user_id.dev.id}"
 }
 
-output "canonical-prod" {
-  value = "${data.aws_canonical_user_id.prod.id}"
+output "secondary-canonical" {
+  value = "${var.aws_canonical_user_id}"
 }
