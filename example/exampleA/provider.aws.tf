@@ -1,6 +1,5 @@
 provider "aws" {
   region  = "eu-west-1"
-  profile = "saml"
   version = "2.0"
 }
 
