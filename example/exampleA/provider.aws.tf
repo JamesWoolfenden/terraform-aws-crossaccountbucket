@@ -9,3 +9,7 @@ provider "aws" {
   version = "2.16"
   alias   = "prod"
 }
+
+provider "null" {
+  version = "2.1"
+}

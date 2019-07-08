@@ -1,1 +1,1 @@
-name="aws-lexbot-handler"
+name = "aws-lexbot-handler"

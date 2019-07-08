@@ -1,9 +1,10 @@
 variable "name" {
-  type        = "string"
+  type        = string
   description = "Prefix to the bucketname"
 }
 
 variable "bucketname" {
   default     = ""
   description = "Optional name for the bucket to share"
+  type        = string
 }
