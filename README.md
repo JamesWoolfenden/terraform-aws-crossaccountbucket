@@ -7,8 +7,6 @@ This module sets up an s3 buckets that is shared across aws accounts.
 
 ---
 
-This project uses the "build-harness" a modified version of the project ["SweetOps"](https://cpco.io/sweetops) from Cloudposse. Sweet indeed.
-
 It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
 ## Usage
@@ -20,7 +18,7 @@ The module file:
 module "crossaccountbucket" {
   source  = "JamesWoolfenden/crossaccountbucket/aws"
   version = "0.1.6"
-  name   = var.name
+  name    = var.name
   aws_canonical_user_id = data.aws_canonical_user_id.prod.aws_canonical_user_id
   Secondary_account_id  = data.aws_caller_identity.prod.id
   }  ```
