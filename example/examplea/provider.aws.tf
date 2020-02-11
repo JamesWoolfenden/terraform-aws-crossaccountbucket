@@ -1,12 +1,12 @@
 provider "aws" {
   region  = "eu-west-1"
-  version = "2.19"
+  version = "2.46"
 }
 
 provider "aws" {
   region  = "eu-west-1"
   profile = "samlprod"
-  version = "2.19"
+  version = "2.46"
   alias   = "prod"
 }
 
