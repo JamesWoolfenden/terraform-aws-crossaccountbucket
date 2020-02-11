@@ -14,3 +14,4 @@ build-harness
 *backup
 *.zip
 *.orig
+*.bak

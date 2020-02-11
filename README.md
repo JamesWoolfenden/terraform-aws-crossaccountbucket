@@ -1,7 +1,7 @@
 
 [![Slalom][logo]](https://slalom.com)
 
-terraform-aws-crossaccountbucket [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-aws-crossaccountbucket.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-crossaccountbucket) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-crossaccountbucket.svg)](https://github.com/JamesWoolfenden/terraform-aws-crossaccountbucket/releases/latest)
+# terraform-aws-crossaccountbucket [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-aws-crossaccountbucket.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-crossaccountbucket) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-crossaccountbucket.svg)](https://github.com/JamesWoolfenden/terraform-aws-crossaccountbucket/releases/latest)
 
 This module sets up an s3 buckets that is shared across aws accounts.
 
@@ -47,9 +47,10 @@ and supply the account and canonical id to the module. The example supplies and 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | Secondary\_account\_id | The account id of the secondary AWS account | string | n/a | yes |
-| aws\_canonical\_user\_id | The canonical id of the account you want to share to (Secondary) | string | n/a | yes |
+| aws\_canonical\_user\_id | The canonical id of the account you want to share to \(Secondary\) | string | n/a | yes |
 | bucketname | Optional name for the bucket to share | string | `""` | no |
 | name | Prefix to the bucketname | string | n/a | yes |
+| versioning | Enable Versioning on s3 bucket | bool | `"true"` | no |
 
 ## Outputs
 
@@ -59,6 +60,8 @@ and supply the account and canonical id to the module. The example supplies and 
 | secondary-canonical |  |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## Instructions
 
 ## Related Projects
 
@@ -80,7 +83,7 @@ Please use the [issue tracker](https://github.com/jameswoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright © 2019-2019 [Slalom, LLC](https://slalom.com)
+Copyright © 2019-2020 [Slalom, LLC](https://slalom.com)
 
 ## License
 
@@ -107,17 +110,14 @@ under the License.
 
 ### Contributors
 
-  [![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage]<br/>[James Woolfenden][jameswoolfenden_homepage]
-
-  [jameswoolfenden_homepage]: https://github.com/jameswoolfenden
-  [jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
-
+[![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage]<br/>[James Woolfenden][jameswoolfenden_homepage]
+[jameswoolfenden_homepage]: https://github.com/jameswoolfenden
+[jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
 [logo]: https://gist.githubusercontent.com/JamesWoolfenden/5c457434351e9fe732ca22b78fdd7d5e/raw/15933294ae2b00f5dba6557d2be88f4b4da21201/slalom-logo.png
 [website]: https://slalom.com
 [github]: https://github.com/jameswoolfenden
 [linkedin]: https://www.linkedin.com/company/slalom-consulting/
 [twitter]: https://twitter.com/Slalom
-
 [share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-crossaccountbucket&url=https://github.com/jameswoolfenden/terraform-aws-crossaccountbucket
 [share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-crossaccountbucket&url=https://github.com/jameswoolfenden/terraform-aws-crossaccountbucket
 [share_reddit]: https://reddit.com/submit/?url=https://github.com/jameswoolfenden/terraform-aws-crossaccountbucket

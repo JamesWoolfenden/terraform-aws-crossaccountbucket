@@ -1,6 +1,9 @@
 resource "aws_s3_bucket" "bucket" {
   bucket = local.bucketname
   acl    = "private"
+  versioning {
+    enabled = var.versioning
+  }
 }
 
 resource "aws_s3_bucket_policy" "bucket" {

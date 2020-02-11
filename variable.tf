@@ -18,3 +18,9 @@ variable "Secondary_account_id" {
   type        = string
   description = "The account id of the secondary AWS account"
 }
+
+variable "versioning" {
+  description = "Enable Versioning on s3 bucket"
+  type        = bool
+  default     = true
+}
