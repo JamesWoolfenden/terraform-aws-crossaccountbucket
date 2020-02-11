@@ -5,3 +5,7 @@ output "primary-canonical" {
 output "secondary-canonical" {
   value = var.aws_canonical_user_id
 }
+
+output "bucket" {
+  value = aws_s3_bucket.bucket
+}
