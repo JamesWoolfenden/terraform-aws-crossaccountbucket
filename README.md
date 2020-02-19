@@ -1,7 +1,7 @@
 
 [![Slalom][logo]](https://slalom.com)
 
-# terraform-aws-crossaccountbucket [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-aws-crossaccountbucket.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-crossaccountbucket) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-crossaccountbucket.svg)](https://github.com/JamesWoolfenden/terraform-aws-crossaccountbucket/releases/latest)
+# terraform-aws-crossaccountbucket [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-aws-crossaccountbucket.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-crossaccountbucket) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-crossaccountbucket.svg)](https://github.com/JamesWoolfenden/terraform-aws-crossaccountbucket/releases/latest) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
 This module sets up an s3 buckets that is shared across aws accounts.
 
