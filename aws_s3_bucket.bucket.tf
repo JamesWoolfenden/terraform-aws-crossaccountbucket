@@ -1,33 +1,19 @@
 resource "aws_s3_bucket" "bucket" {
   bucket = local.bucketname
   acl    = "private"
+  tags   = var.common_tags
+  #checkov:skip=CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
   versioning {
-    enabled = var.versioning
+    enabled    = var.versioning
+    mfa_delete = var.mfa_delete
   }
-}
 
-resource "aws_s3_bucket_policy" "bucket" {
-  bucket = local.bucketname
-  policy = data.aws_iam_policy_document.canon.json
-}
-
-data "aws_iam_policy_document" "canon" {
-  statement {
-    effect = "Allow"
-
-    actions = [
-      "s3:GetObject",
-      "s3:PutObject",
-    ]
-
-    resources = [
-      "arn:aws:s3:::${local.bucketname}",
-      "arn:aws:s3:::${local.bucketname}/*",
-    ]
-
-    principals {
-      type        = "AWS"
-      identifiers = ["arn:aws:iam::${var.Secondary_account_id}:root"]
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = var.sse_algorithm
+      }
     }
   }
+
 }

@@ -1,7 +1,12 @@
 
 [![Slalom][logo]](https://slalom.com)
 
-# terraform-aws-crossaccountbucket [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-aws-crossaccountbucket.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-crossaccountbucket) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-crossaccountbucket.svg)](https://github.com/JamesWoolfenden/terraform-aws-crossaccountbucket/releases/latest) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+# terraform-aws-crossaccountbucket
+
+[![Build Status](https://github.com/JamesWoolfenden/terraform-aws-crossaccountbucket/workflows/Verify%20and%20Bump/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-aws-crossaccountbucket)
+[![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-crossaccountbucket.svg)](https://github.com/JamesWoolfenden/terraform-aws-crossaccountbucket/releases/latest)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![pre-commit](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
 
 This module sets up an s3 buckets that is shared across aws accounts.
 
@@ -42,22 +47,33 @@ provider "aws" {
 
 and supply the account and canonical id to the module. The example supplies and example resource.
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | n/a |
+| null | n/a |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| Secondary\_account\_id | The account id of the secondary AWS account | string | n/a | yes |
-| aws\_canonical\_user\_id | The canonical id of the account you want to share to \(Secondary\) | string | n/a | yes |
-| bucketname | Optional name for the bucket to share | string | `""` | no |
-| name | Prefix to the bucketname | string | n/a | yes |
-| versioning | Enable Versioning on s3 bucket | bool | `"true"` | no |
+|------|-------------|------|---------|:-----:|
+| Secondary\_account\_id | The account id of the secondary AWS account | `string` | n/a | yes |
+| aws\_canonical\_user\_id | The canonical id of the account you want to share to (Secondary) | `string` | n/a | yes |
+| bucketname | Optional name for the bucket to share | `string` | `""` | no |
+| common\_tags | This is a map type for applying tags on resources | `map` | n/a | yes |
+| mfa\_delete | To enable/disable MFA delete | `bool` | `true` | no |
+| name | Prefix to the bucketname | `string` | n/a | yes |
+| sse\_algorithm | The type of encryption algorithm to use | `string` | `"aws:kms"` | no |
+| versioning | Enable Versioning on s3 bucket | `bool` | `true` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| primary-canonical |  |
-| secondary-canonical |  |
+| bucket | n/a |
+| primary-canonical | n/a |
+| secondary-canonical | n/a |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

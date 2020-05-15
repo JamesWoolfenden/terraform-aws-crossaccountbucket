@@ -24,3 +24,19 @@ variable "versioning" {
   type        = bool
   default     = true
 }
+variable "sse_algorithm" {
+  description = "The type of encryption algorithm to use"
+  type        = string
+  default     = "aws:kms"
+}
+
+variable "mfa_delete" {
+  type        = bool
+  description = "To enable/disable MFA delete"
+  default     = true
+}
+
+variable "common_tags" {
+  description = "This is a map type for applying tags on resources"
+  type        = map
+}
