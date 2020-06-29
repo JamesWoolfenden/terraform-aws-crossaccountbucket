@@ -47,7 +47,34 @@ provider "aws" {
 
 and supply the account and canonical id to the module. The example supplies and example resource.
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-Error: no lines in file
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | n/a |
+| null | n/a |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:-----:|
+| Secondary\_account\_id | The account id of the secondary AWS account | `string` | n/a | yes |
+| aws\_canonical\_user\_id | The canonical id of the account you want to share to (Secondary) | `string` | n/a | yes |
+| bucketname | Optional name for the bucket to share | `string` | `""` | no |
+| common\_tags | This is a map type for applying tags on resources | `map` | n/a | yes |
+| mfa\_delete | To enable/disable MFA delete | `bool` | `true` | no |
+| name | Prefix to the bucketname | `string` | n/a | yes |
+| sse\_algorithm | The type of encryption algorithm to use | `string` | `"aws:kms"` | no |
+| versioning | Enable Versioning on s3 bucket | `bool` | `true` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| bucket | n/a |
+| primary-canonical | n/a |
+| secondary-canonical | n/a |
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Instructions

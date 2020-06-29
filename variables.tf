@@ -24,6 +24,7 @@ variable "versioning" {
   type        = bool
   default     = true
 }
+
 variable "sse_algorithm" {
   description = "The type of encryption algorithm to use"
   type        = string
