@@ -6,7 +6,7 @@
 [![Build Status](https://github.com/JamesWoolfenden/terraform-aws-crossaccountbucket/workflows/Verify%20and%20Bump/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-aws-crossaccountbucket)
 [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-crossaccountbucket.svg)](https://github.com/JamesWoolfenden/terraform-aws-crossaccountbucket/releases/latest)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
-[![pre-commit](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
+[![checkov](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
 
 This module sets up an s3 buckets that is shared across aws accounts.
 
@@ -34,12 +34,12 @@ module "crossaccountbucket" {
 
 provider "aws" {
   region  = "eu-west-1"
-  version = "2.68.0"
+  version = "3.00.0"
 }
 
 provider "aws" {
   region  = "eu-west-1"
-  version = "2.68.0"
+  version = "3.00.0"
   alias   = "prod"
 }
 
@@ -47,6 +47,10 @@ provider "aws" {
 
 and supply the account and canonical id to the module. The example supplies and example resource.
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+No requirements.
+
 ## Providers
 
 | Name | Version |
@@ -57,7 +61,7 @@ and supply the account and canonical id to the module. The example supplies and 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | Secondary\_account\_id | The account id of the secondary AWS account | `string` | n/a | yes |
 | aws\_canonical\_user\_id | The canonical id of the account you want to share to (Secondary) | `string` | n/a | yes |
 | bucketname | Optional name for the bucket to share | `string` | `""` | no |
