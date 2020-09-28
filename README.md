@@ -1,6 +1,3 @@
-
-[![Slalom][logo]](https://slalom.com)
-
 # terraform-aws-crossaccountbucket
 
 [![Build Status](https://github.com/JamesWoolfenden/terraform-aws-crossaccountbucket/workflows/Verify%20and%20Bump/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-aws-crossaccountbucket)
@@ -19,7 +16,7 @@ It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 It's a very simple module to use .
 The module file:
 
-```make
+````make
 module "crossaccountbucket" {
   source  = "JamesWoolfenden/crossaccountbucket/aws"
   version = "0.1.6"
@@ -43,10 +40,12 @@ provider "aws" {
   alias   = "prod"
 }
 
-```
+````
 
 and supply the account and canonical id to the module. The example supplies and example resource.
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Requirements
 
 No requirements.
@@ -54,30 +53,30 @@ No requirements.
 ## Providers
 
 | Name | Version |
-|------|---------|
-| aws | n/a |
-| null | n/a |
+| ---- | ------- |
+| aws  | n/a     |
+| null | n/a     |
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| Secondary\_account\_id | The account id of the secondary AWS account | `string` | n/a | yes |
-| aws\_canonical\_user\_id | The canonical id of the account you want to share to (Secondary) | `string` | n/a | yes |
-| bucketname | Optional name for the bucket to share | `string` | `""` | no |
-| common\_tags | This is a map type for applying tags on resources | `map` | n/a | yes |
-| mfa\_delete | To enable/disable MFA delete | `bool` | `true` | no |
-| name | Prefix to the bucketname | `string` | n/a | yes |
-| sse\_algorithm | The type of encryption algorithm to use | `string` | `"aws:kms"` | no |
-| versioning | Enable Versioning on s3 bucket | `bool` | `true` | no |
+| Name                  | Description                                                      | Type     | Default     | Required |
+| --------------------- | ---------------------------------------------------------------- | -------- | ----------- | :------: |
+| Secondary_account_id  | The account id of the secondary AWS account                      | `string` | n/a         |   yes    |
+| aws_canonical_user_id | The canonical id of the account you want to share to (Secondary) | `string` | n/a         |   yes    |
+| bucketname            | Optional name for the bucket to share                            | `string` | `""`        |    no    |
+| common_tags           | This is a map type for applying tags on resources                | `map`    | n/a         |   yes    |
+| mfa_delete            | To enable/disable MFA delete                                     | `bool`   | `true`      |    no    |
+| name                  | Prefix to the bucketname                                         | `string` | n/a         |   yes    |
+| sse_algorithm         | The type of encryption algorithm to use                          | `string` | `"aws:kms"` |    no    |
+| versioning            | Enable Versioning on s3 bucket                                   | `bool`   | `true`      |    no    |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| bucket | n/a |
-| primary-canonical | n/a |
-| secondary-canonical | n/a |
+| Name                | Description |
+| ------------------- | ----------- |
+| bucket              | n/a         |
+| primary-canonical   | n/a         |
+| secondary-canonical | n/a         |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
@@ -103,7 +102,7 @@ Please use the [issue tracker](https://github.com/jameswoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright © 2019-2020 [Slalom, LLC](https://slalom.com)
+Copyright © 2019-2020 James Woolfenden
 
 ## License
 
@@ -112,19 +111,19 @@ Copyright © 2019-2020 [Slalom, LLC](https://slalom.com)
 See [LICENSE](LICENSE) for full details.
 
 Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the NOTICE file
+or more contributor license agreements. See the NOTICE file
 distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
+regarding copyright ownership. The ASF licenses this file
 to you under the Apache License, Version 2.0 (the
 "License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
+with the License. You may obtain a copy of the License at
 
 <https://www.apache.org/licenses/LICENSE-2.0>
 
 Unless required by applicable law or agreed to in writing,
 software distributed under the License is distributed on an
 "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
+KIND, either express or implied. See the License for the
 specific language governing permissions and limitations
 under the License.
 
@@ -134,8 +133,6 @@ under the License.
 
 [jameswoolfenden_homepage]: https://github.com/jameswoolfenden
 [jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
-[logo]: https://gist.githubusercontent.com/JamesWoolfenden/5c457434351e9fe732ca22b78fdd7d5e/raw/15933294ae2b00f5dba6557d2be88f4b4da21201/slalom-logo.png
-[website]: https://slalom.com
 [github]: https://github.com/jameswoolfenden
 [linkedin]: https://www.linkedin.com/in/jameswoolfenden/
 [twitter]: https://twitter.com/JimWoolfenden
