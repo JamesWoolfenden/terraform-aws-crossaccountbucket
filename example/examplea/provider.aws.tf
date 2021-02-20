@@ -4,6 +4,6 @@ provider "aws" {
 
 provider "aws" {
   region  = "eu-west-1"
-  profile = "samlprod"
+  profile = "prod"
   alias   = "prod"
 }

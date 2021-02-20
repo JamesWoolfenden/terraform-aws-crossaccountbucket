@@ -1,4 +1,5 @@
 name = "aws-lexbot-handler"
 common_tags = {
-  createdny = "Terraform"
+  createdby = "Terraform"
+  module    = "terraform-aws-crossaccountbucket"
 }
