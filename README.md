@@ -49,52 +49,6 @@ provider "aws" {
 and supply the account and canonical id to the module. The example supplies and example resource.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Requirements
-
-No requirements.
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| aws | n/a |
-| null | n/a |
-
-## Modules
-
-No Modules.
-
-## Resources
-
-| Name |
-|------|
-| [aws_caller_identity](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) |
-| [aws_canonical_user_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/canonical_user_id) |
-| [aws_iam_policy_document](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) |
-| [aws_s3_bucket_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy) |
-| [aws_s3_bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) |
-| [null_resource](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) |
-
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| Secondary\_account\_id | The account id of the secondary AWS account | `string` | n/a | yes |
-| aws\_canonical\_user\_id | The canonical id of the account you want to share to (Secondary) | `string` | n/a | yes |
-| bucketname | Optional name for the bucket to share | `string` | `""` | no |
-| common\_tags | This is a map type for applying tags on resources | `map(any)` | n/a | yes |
-| mfa\_delete | To enable/disable MFA delete | `bool` | `true` | no |
-| name | Prefix to the bucketname | `string` | n/a | yes |
-| sse\_algorithm | The type of encryption algorithm to use | `string` | `"aws:kms"` | no |
-| versioning | Enable Versioning on s3 bucket | `bool` | `true` | no |
-
-## Outputs
-
-| Name | Description |
-|------|-------------|
-| bucket | n/a |
-| primary-canonical | n/a |
-| secondary-canonical | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Instructions
@@ -119,7 +73,7 @@ Please use the [issue tracker](https://github.com/jameswoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright © 2019-2021 James Woolfenden
+Copyright 2019-2021 James Woolfenden
 
 ## License
 
