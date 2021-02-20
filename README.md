@@ -63,7 +63,7 @@ No requirements.
 | Secondary\_account\_id | The account id of the secondary AWS account | `string` | n/a | yes |
 | aws\_canonical\_user\_id | The canonical id of the account you want to share to (Secondary) | `string` | n/a | yes |
 | bucketname | Optional name for the bucket to share | `string` | `""` | no |
-| common\_tags | This is a map type for applying tags on resources | `map` | n/a | yes |
+| common\_tags | This is a map type for applying tags on resources | `map(any)` | n/a | yes |
 | mfa\_delete | To enable/disable MFA delete | `bool` | `true` | no |
 | name | Prefix to the bucketname | `string` | n/a | yes |
 | sse\_algorithm | The type of encryption algorithm to use | `string` | `"aws:kms"` | no |
@@ -101,7 +101,7 @@ Please use the [issue tracker](https://github.com/jameswoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright © 2019-2020 James Woolfenden
+Copyright © 2019-2021 James Woolfenden
 
 ## License
 
