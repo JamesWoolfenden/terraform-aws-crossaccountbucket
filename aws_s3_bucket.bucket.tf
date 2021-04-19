@@ -1,3 +1,4 @@
+# tfsec:ignore:AWS002
 resource "aws_s3_bucket" "bucket" {
   # checkov:skip=CKV_AWS_144:
   # checkov:skip=CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
