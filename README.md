@@ -68,6 +68,7 @@ No modules.
 |------|------|
 | [aws_s3_bucket.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
 | [aws_s3_bucket_policy.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy) | resource |
+| [aws_s3_bucket_public_access_block.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block) | resource |
 | [null_resource.crossacount-share](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 | [aws_canonical_user_id.dev](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/canonical_user_id) | data source |
@@ -80,7 +81,6 @@ No modules.
 | <a name="input_Secondary_account_id"></a> [Secondary\_account\_id](#input\_Secondary\_account\_id) | The account id of the secondary AWS account | `string` | n/a | yes |
 | <a name="input_aws_canonical_user_id"></a> [aws\_canonical\_user\_id](#input\_aws\_canonical\_user\_id) | The canonical id of the account you want to share to (Secondary) | `string` | n/a | yes |
 | <a name="input_bucketname"></a> [bucketname](#input\_bucketname) | Optional name for the bucket to share | `string` | `""` | no |
-| <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | This is a map type for applying tags on resources | `map(any)` | n/a | yes |
 | <a name="input_mfa_delete"></a> [mfa\_delete](#input\_mfa\_delete) | To enable/disable MFA delete | `bool` | `true` | no |
 | <a name="input_name"></a> [name](#input\_name) | Prefix to the bucketname | `string` | n/a | yes |
 | <a name="input_sse_algorithm"></a> [sse\_algorithm](#input\_sse\_algorithm) | The type of encryption algorithm to use | `string` | `"aws:kms"` | no |

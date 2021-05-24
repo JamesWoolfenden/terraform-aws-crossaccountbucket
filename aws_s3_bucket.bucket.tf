@@ -5,7 +5,6 @@ resource "aws_s3_bucket" "bucket" {
 
   bucket = local.bucketname
   acl    = "private"
-  tags   = var.common_tags
 
   versioning {
     enabled    = var.versioning
