@@ -47,16 +47,17 @@ provider "aws" {
 and supply the account and canonical id to the module. The example supplies and example resource.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Requirements
 
 No requirements.
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
-| <a name="provider_null"></a> [null](#provider\_null) | n/a |
+| Name                                                | Version |
+| --------------------------------------------------- | ------- |
+| <a name="provider_aws"></a> [aws](#provider_aws)    | n/a     |
+| <a name="provider_null"></a> [null](#provider_null) | n/a     |
 
 ## Modules
 
@@ -64,35 +65,36 @@ No modules.
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [aws_s3_bucket.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
-| [aws_s3_bucket_policy.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy) | resource |
-| [aws_s3_bucket_public_access_block.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block) | resource |
-| [null_resource.crossacount-share](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
-| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
-| [aws_canonical_user_id.dev](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/canonical_user_id) | data source |
-| [aws_iam_policy_document.canon](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
+| Name                                                                                                                                                  | Type        |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| [aws_s3_bucket.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket)                                         | resource    |
+| [aws_s3_bucket_policy.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy)                           | resource    |
+| [aws_s3_bucket_public_access_block.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block) | resource    |
+| [null_resource.crossacount-share](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource)                              | resource    |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)                         | data source |
+| [aws_canonical_user_id.dev](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/canonical_user_id)                         | data source |
+| [aws_iam_policy_document.canon](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document)                   | data source |
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_Secondary_account_id"></a> [Secondary\_account\_id](#input\_Secondary\_account\_id) | The account id of the secondary AWS account | `string` | n/a | yes |
-| <a name="input_aws_canonical_user_id"></a> [aws\_canonical\_user\_id](#input\_aws\_canonical\_user\_id) | The canonical id of the account you want to share to (Secondary) | `string` | n/a | yes |
-| <a name="input_bucketname"></a> [bucketname](#input\_bucketname) | Optional name for the bucket to share | `string` | `""` | no |
-| <a name="input_mfa_delete"></a> [mfa\_delete](#input\_mfa\_delete) | To enable/disable MFA delete | `bool` | `true` | no |
-| <a name="input_name"></a> [name](#input\_name) | Prefix to the bucketname | `string` | n/a | yes |
-| <a name="input_sse_algorithm"></a> [sse\_algorithm](#input\_sse\_algorithm) | The type of encryption algorithm to use | `string` | `"aws:kms"` | no |
-| <a name="input_versioning"></a> [versioning](#input\_versioning) | Enable Versioning on s3 bucket | `bool` | `true` | no |
+| Name                                                                                             | Description                                                      | Type     | Default     | Required |
+| ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------- | -------- | ----------- | :------: |
+| <a name="input_Secondary_account_id"></a> [Secondary_account_id](#input_Secondary_account_id)    | The account id of the secondary AWS account                      | `string` | n/a         |   yes    |
+| <a name="input_aws_canonical_user_id"></a> [aws_canonical_user_id](#input_aws_canonical_user_id) | The canonical id of the account you want to share to (Secondary) | `string` | n/a         |   yes    |
+| <a name="input_bucketname"></a> [bucketname](#input_bucketname)                                  | Optional name for the bucket to share                            | `string` | `""`        |    no    |
+| <a name="input_mfa_delete"></a> [mfa_delete](#input_mfa_delete)                                  | To enable/disable MFA delete                                     | `bool`   | `true`      |    no    |
+| <a name="input_name"></a> [name](#input_name)                                                    | Prefix to the bucketname                                         | `string` | n/a         |   yes    |
+| <a name="input_sse_algorithm"></a> [sse_algorithm](#input_sse_algorithm)                         | The type of encryption algorithm to use                          | `string` | `"aws:kms"` |    no    |
+| <a name="input_versioning"></a> [versioning](#input_versioning)                                  | Enable Versioning on s3 bucket                                   | `bool`   | `true`      |    no    |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_bucket"></a> [bucket](#output\_bucket) | n/a |
-| <a name="output_primary-canonical"></a> [primary-canonical](#output\_primary-canonical) | n/a |
-| <a name="output_secondary-canonical"></a> [secondary-canonical](#output\_secondary-canonical) | n/a |
+| Name                                                                                         | Description |
+| -------------------------------------------------------------------------------------------- | ----------- |
+| <a name="output_bucket"></a> [bucket](#output_bucket)                                        | n/a         |
+| <a name="output_primary-canonical"></a> [primary-canonical](#output_primary-canonical)       | n/a         |
+| <a name="output_secondary-canonical"></a> [secondary-canonical](#output_secondary-canonical) | n/a         |
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Instructions
@@ -117,7 +119,7 @@ Please use the [issue tracker](https://github.com/jameswoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright 2019-2021 James Woolfenden
+Copyright 2019-2022 James Woolfenden
 
 ## License
 
