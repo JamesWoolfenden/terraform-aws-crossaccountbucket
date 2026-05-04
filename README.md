@@ -117,6 +117,7 @@ resource "aws_iam_policy" "terraform_pike" {
             "Action": [
                 "s3:CreateBucket",
                 "s3:DeleteBucket",
+                "s3:DeleteBucketPolicy",
                 "s3:GetAccelerateConfiguration",
                 "s3:GetBucketAcl",
                 "s3:GetBucketCORS",
@@ -137,7 +138,9 @@ resource "aws_iam_policy" "terraform_pike" {
                 "s3:PutBucketPolicy",
                 "s3:PutBucketPublicAccessBlock"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         }
     ]
 })
