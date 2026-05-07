@@ -54,7 +54,7 @@ No requirements.
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 | <a name="provider_null"></a> [null](#provider\_null) | n/a |
 
@@ -65,7 +65,7 @@ No modules.
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [aws_s3_bucket.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
 | [aws_s3_bucket_policy.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy) | resource |
 | [aws_s3_bucket_public_access_block.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block) | resource |
@@ -77,7 +77,7 @@ No modules.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_Secondary_account_id"></a> [Secondary\_account\_id](#input\_Secondary\_account\_id) | The account id of the secondary AWS account | `string` | n/a | yes |
 | <a name="input_aws_canonical_user_id"></a> [aws\_canonical\_user\_id](#input\_aws\_canonical\_user\_id) | The canonical id of the account you want to share to (Secondary) | `string` | n/a | yes |
 | <a name="input_bucketname"></a> [bucketname](#input\_bucketname) | Optional name for the bucket to share | `string` | `""` | no |
@@ -89,7 +89,7 @@ No modules.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_bucket"></a> [bucket](#output\_bucket) | n/a |
 | <a name="output_primary-canonical"></a> [primary-canonical](#output\_primary-canonical) | n/a |
 | <a name="output_secondary-canonical"></a> [secondary-canonical](#output\_secondary-canonical) | n/a |
